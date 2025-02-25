@@ -2,13 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const personasRoute = require('./routes/persona.route');
+const productosRoute = require('./routes/producto.route');
 
 const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.json());
-
 app.use('/api/personas', personasRoute);
+app.use('/api/productos', productosRoute);
 
 mongoose.connect('mongodb+srv://20233tn139:20233tn139@apaez.gvuvq.mongodb.net/Test?retryWrites=true&w=majority&appName=Apaez', {useNewUrlParser: true, useUnifiedTopology: true}).then(() =>{
     console.log('Conexión exitosa a la base de datos a MongoDB');
